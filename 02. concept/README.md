@@ -4,8 +4,36 @@
 - HTML에서 여러개의 `VueJS`를 마운트 가능
 - 마운트 별로 사용할 수 있는 함수 및 데이터를 나눌 수 있다.
 
-```Javascript
+```javascript
 const app = Vue.createApp();
 
-app.mount(<DOM Element>);
+app.mount("#app");
+```
+
+```html
+<div id="app"></div>
+```
+
+## 데이터 바인딩
+
+- `VueJS`를 생성시 App에서 관리하는 데이터를 정의한다.
+- `Vue` 예약어인 _data_ 함수를 사용한다.
+- HTML에서 사용시 **{{ }}** 내부에 정의한 데이터 명을 사용한다.
+
+```javascript
+const app = Vue.createApp({
+  data() {
+    return {
+      course: "Vue JS Composition",
+    };
+  },
+});
+
+app.mount("#app");
+```
+
+```html
+<div id="app">
+  <h1>{{ course }}</h1>
+</div>
 ```
