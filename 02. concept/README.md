@@ -62,3 +62,37 @@ app.mount("#app");
   <a v-bind:href="link"> more Vue. </a>
 </div>
 ```
+
+## methods
+
+- `VueJS`를 생성시 App에서 관리하는 메소드를 정의한다.
+- `Vue` 예약어인 _methods_ 키값을 사용한다.
+- HTML에서 사용시 **{{ }}** 내부에 정의한 Method를 사용한다.
+- **{{ }}** 내부에서는 간단한 Javascript 함수를 사용할 수 있다.
+
+```javascript
+const app = Vue.createApp({
+  data() {
+    return {
+      course: "Vue JS Composition",
+      link: "https://vuejs.org/",
+    };
+  },
+  methods: {
+    nowDate() {
+      return new Date().toDateString();
+    },
+  },
+});
+
+app.mount("#app");
+```
+
+```html
+<div id="app">
+  <h1>{{ course }}</h1>
+  <a v-bind:href="link"> more Vue. </a>
+  <p>{{ nowDate() }}</p>
+  <p>{{ new Date() }}</p>
+</div>
+```

@@ -5,6 +5,11 @@ const app = Vue.createApp({
       link: "https://vuejs.org/",
     };
   },
+  methods: {
+    nowDate() {
+      return new Date().toDateString();
+    },
+  },
 });
 
 app.mount("#user-goal");
