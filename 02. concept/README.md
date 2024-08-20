@@ -131,3 +131,42 @@ app.mount("#app");
   <p>{{ formatCourse() }}</p>
 </div>
 ```
+
+## v-html
+
+- HTML 태그로 이루어진 데이터를 출력할 때 사용한다.
+- 해당 데이터가 `DOM Element`라는 것을 알려준다.
+- 크로스 사이트 스크립팅 공격에 대한 방어 기능이 되지 않아 보안 위협이 발생하기 때문에 기본적으로 사용을 자제해야 한다.
+
+```javascript
+const app = Vue.createApp({
+  data() {
+    return {
+      course: "Vue JS Composition",
+      link: "https://vuejs.org/",
+      tag: "<h2>Hello World!</h2>",
+    };
+  },
+  methods: {
+    nowDate() {
+      return new Date().toDateString();
+    },
+    formatCourse() {
+      return "Finished " + this.course + "!!";
+    },
+  },
+});
+
+app.mount("#app");
+```
+
+```html
+<div id="app">
+  <h1>{{ course }}</h1>
+  <a v-bind:href="link"> more Vue. </a>
+  <p>{{ nowDate() }}</p>
+  <p>{{ new Date() }}</p>
+  <p>{{ formatCourse() }}</p>
+  <p v-html="tag" />
+</div>
+```

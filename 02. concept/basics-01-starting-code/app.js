@@ -3,6 +3,7 @@ const app = Vue.createApp({
     return {
       goal: "the course and learn Vue",
       link: "https://vuejs.org/",
+      htmltag: "<h3>Hello World!</h3>",
     };
   },
   methods: {
