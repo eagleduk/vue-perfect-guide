@@ -37,3 +37,28 @@ app.mount("#app");
   <h1>{{ course }}</h1>
 </div>
 ```
+
+## v-bind
+
+- **{{ }}** 로 데이터를 사용할 때에는 HTML 태그에서만 사용 가능하다.
+- `DOM Element`의 속성에 데이터를 바인딩할 때에는 **v-bind** 기능을 사용하여 속성을 제어한다.
+
+```javascript
+const app = Vue.createApp({
+  data() {
+    return {
+      course: "Vue JS Composition",
+      link: "https://vuejs.org/",
+    };
+  },
+});
+
+app.mount("#app");
+```
+
+```html
+<div id="app">
+  <h1>{{ course }}</h1>
+  <a v-bind:href="link"> more Vue. </a>
+</div>
+```
