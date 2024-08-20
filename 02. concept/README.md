@@ -96,3 +96,38 @@ app.mount("#app");
   <p>{{ new Date() }}</p>
 </div>
 ```
+
+## Use Data
+
+- `Vue` App내에서 정의한 데이터를 사용하고자 할 때, **this** 키워드를 사용한다.
+
+```javascript
+const app = Vue.createApp({
+  data() {
+    return {
+      course: "Vue JS Composition",
+      link: "https://vuejs.org/",
+    };
+  },
+  methods: {
+    nowDate() {
+      return new Date().toDateString();
+    },
+    formatCourse() {
+      return "Finished " + this.course + "!!";
+    },
+  },
+});
+
+app.mount("#app");
+```
+
+```html
+<div id="app">
+  <h1>{{ course }}</h1>
+  <a v-bind:href="link"> more Vue. </a>
+  <p>{{ nowDate() }}</p>
+  <p>{{ new Date() }}</p>
+  <p>{{ formatCourse() }}</p>
+</div>
+```
