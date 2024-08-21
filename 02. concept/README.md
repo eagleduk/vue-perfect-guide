@@ -216,3 +216,48 @@ app.mount("#app");
   <button v-on:click="counter--">Decrease</button>
 </div>
 ```
+
+- `Vue`App 의 method 형식으로도 가능하다.
+- method의 이름만 가르켜도, 함수를 넣어도 동작 가능하다.
+
+```javascript
+const app = Vue.createApp({
+  data() {
+    return {
+      course: "Vue JS Composition",
+      link: "https://vuejs.org/",
+      tag: "<h2>Hello World!</h2>",
+      counter: 0,
+    };
+  },
+  methods: {
+    nowDate() {
+      return new Date().toDateString();
+    },
+    formatCourse() {
+      return "Finished " + this.course + "!!";
+    },
+    increment() {
+      this.counter++;
+    },
+    decrement() {
+      this.counter--;
+    },
+  },
+});
+
+app.mount("#app");
+```
+
+```html
+<div id="app">
+  <h1>{{ course }}</h1>
+  <a v-bind:href="link"> more Vue. </a>
+  <p>{{ nowDate() }}</p>
+  <p>{{ new Date() }}</p>
+  <p>{{ formatCourse() }}</p>
+  <p v-html="tag" />
+  <button v-on:click="increment">Increase</button>
+  <button v-on:click="decrement()">Decrease</button>
+</div>
+```
