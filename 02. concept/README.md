@@ -305,3 +305,59 @@ app.mount("#app");
   <button v-on:click="decrement(5)">Decrease</button>
 </div>
 ```
+
+- 이벤트객체를 method에 전달하고자 할 때에는 method명을 입력하면 `Vue`에서 자동으로 `event`객체를 전달하고, 인수 값을 전달할 때에는 `$event` 예약어를 사용한다.
+
+```javascript
+const app = Vue.createApp({
+  data() {
+    return {
+      course: "Vue JS Composition",
+      link: "https://vuejs.org/",
+      tag: "<h2>Hello World!</h2>",
+      counter: 0,
+      firstname: "",
+      fullname: "",
+    };
+  },
+  methods: {
+    nowDate() {
+      return new Date().toDateString();
+    },
+    formatCourse() {
+      return "Finished " + this.course + "!!";
+    },
+    increment(num) {
+      this.counter = this.counter + num;
+    },
+    decrement(num) {
+      this.counter = this.counter - num;
+    },
+    setFirstName(event) {
+      this.firstname = event.target.value;
+    },
+    setFullName(event, firstname) {
+      this.fullname = firstname + " " + event.target.value;
+    },
+  },
+});
+
+app.mount("#app");
+```
+
+```html
+<div id="app">
+  <h1>{{ course }}</h1>
+  <a v-bind:href="link"> more Vue. </a>
+  <p>{{ nowDate() }}</p>
+  <p>{{ new Date() }}</p>
+  <p>{{ formatCourse() }}</p>
+  <p v-html="tag" />
+  <button v-on:click="increment(10)">Increase</button>
+  <button v-on:click="decrement(5)">Decrease</button>
+  <input type="text" v-on:input="setFirstName" />
+  <p>{{ firstname }}</p>
+  <input type="text" v-on:input="setFullName($event, firstname)" />
+  <p>{{ fullname }}</p>
+</div>
+```
