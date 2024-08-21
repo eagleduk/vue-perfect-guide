@@ -261,3 +261,47 @@ app.mount("#app");
   <button v-on:click="decrement()">Decrease</button>
 </div>
 ```
+
+- `Vue`App 메소드에 인수를 활용할 때에는 method 이름을 가르키는 방식이 아닌 함수를 수행하는 방식의 바인딩을 사용한다.
+
+```javascript
+const app = Vue.createApp({
+  data() {
+    return {
+      course: "Vue JS Composition",
+      link: "https://vuejs.org/",
+      tag: "<h2>Hello World!</h2>",
+      counter: 0,
+    };
+  },
+  methods: {
+    nowDate() {
+      return new Date().toDateString();
+    },
+    formatCourse() {
+      return "Finished " + this.course + "!!";
+    },
+    increment(num) {
+      this.counter = this.counter + num;
+    },
+    decrement(num) {
+      this.counter = this.counter - num;
+    },
+  },
+});
+
+app.mount("#app");
+```
+
+```html
+<div id="app">
+  <h1>{{ course }}</h1>
+  <a v-bind:href="link"> more Vue. </a>
+  <p>{{ nowDate() }}</p>
+  <p>{{ new Date() }}</p>
+  <p>{{ formatCourse() }}</p>
+  <p v-html="tag" />
+  <button v-on:click="increment(10)">Increase</button>
+  <button v-on:click="decrement(5)">Decrease</button>
+</div>
+```
