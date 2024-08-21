@@ -361,3 +361,31 @@ app.mount("#app");
   <p>{{ fullname }}</p>
 </div>
 ```
+
+## 이벤트 수식어
+
+- `v-on` 디렉티브를 `@`로 대체 가능하다.
+- 주로 사용하는 [DOM 이벤트](https://vuejs.org/guide/essentials/event-handling.html#event-modifiers), [Key 이벤트](https://vuejs.org/guide/essentials/event-handling.html#key-aliases), [Mouse 이벤트](https://vuejs.org/guide/essentials/event-handling.html#mouse-button-modifiers) 등의 **shortcut** 을 사용할 수 있다.
+
+```javascript
+const app = Vue.createApp({
+  data() {
+    return {};
+  },
+  methods: {
+    submitForm() {
+      alert("Form Submit!");
+    },
+  },
+});
+
+app.mount("#app");
+```
+
+```html
+<div id="app">
+  <form @submit.prevent="submitForm">
+    <button>submit</button>
+  </form>
+</div>
+```

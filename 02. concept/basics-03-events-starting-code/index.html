@@ -24,6 +24,9 @@
     <p>{{ firstname }}</p>
     <input type="text" v-on:input="setFullName($event, firstname)">
     <p>{{ fullname }}</p>
+    <form @:submit.prevent="submitForm">
+      <button>submit</button>
+    </form>
   </section>
 </body>
 

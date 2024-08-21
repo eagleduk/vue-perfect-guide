@@ -20,6 +20,9 @@ const app = Vue.createApp({
       console.log(event);
       this.fullname = firstname + " " + event.target.value;
     },
+    submitForm() {
+      alert("Form Submit!");
+    },
   },
 });
 
