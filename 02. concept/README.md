@@ -175,3 +175,44 @@ app.mount("#app");
   <p v-html="tag" />
 </div>
 ```
+
+## 이벤트 바인딩
+
+- 데이터 바인딩과 비슷하게 `v-on:[이벤트 타입]` 형식으로 사용
+- 직접적으로 `Vue`App의 데이터에 접근가능하다.
+
+```javascript
+const app = Vue.createApp({
+  data() {
+    return {
+      course: "Vue JS Composition",
+      link: "https://vuejs.org/",
+      tag: "<h2>Hello World!</h2>",
+      counter: 0,
+    };
+  },
+  methods: {
+    nowDate() {
+      return new Date().toDateString();
+    },
+    formatCourse() {
+      return "Finished " + this.course + "!!";
+    },
+  },
+});
+
+app.mount("#app");
+```
+
+```html
+<div id="app">
+  <h1>{{ course }}</h1>
+  <a v-bind:href="link"> more Vue. </a>
+  <p>{{ nowDate() }}</p>
+  <p>{{ new Date() }}</p>
+  <p>{{ formatCourse() }}</p>
+  <p v-html="tag" />
+  <button v-on:click="counter++">Increase</button>
+  <button v-on:click="counter--">Decrease</button>
+</div>
+```
