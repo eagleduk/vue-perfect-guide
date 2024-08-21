@@ -214,6 +214,7 @@ app.mount("#app");
   <p v-html="tag" />
   <button v-on:click="counter++">Increase</button>
   <button v-on:click="counter--">Decrease</button>
+  <p>{{ counter }}</p>
 </div>
 ```
 
@@ -259,6 +260,7 @@ app.mount("#app");
   <p v-html="tag" />
   <button v-on:click="increment">Increase</button>
   <button v-on:click="decrement()">Decrease</button>
+  <p>{{ counter }}</p>
 </div>
 ```
 
@@ -303,6 +305,7 @@ app.mount("#app");
   <p v-html="tag" />
   <button v-on:click="increment(10)">Increase</button>
   <button v-on:click="decrement(5)">Decrease</button>
+  <p>{{ counter }}</p>
 </div>
 ```
 
@@ -355,6 +358,7 @@ app.mount("#app");
   <p v-html="tag" />
   <button v-on:click="increment(10)">Increase</button>
   <button v-on:click="decrement(5)">Decrease</button>
+  <p>{{ counter }}</p>
   <input type="text" v-on:input="setFirstName" />
   <p>{{ firstname }}</p>
   <input type="text" v-on:input="setFullName($event, firstname)" />
@@ -387,5 +391,38 @@ app.mount("#app");
   <form @submit.prevent="submitForm">
     <button>submit</button>
   </form>
+</div>
+```
+
+## v-once
+
+- `Vue`의 기능을 한번만 수행하도록 제한한다.
+
+```javascript
+const app = Vue.createApp({
+  data() {
+    return {
+      counter: 0,
+    };
+  },
+  methods: {
+    increment(num) {
+      this.counter = this.counter + num;
+    },
+    decrement(num) {
+      this.counter = this.counter - num;
+    },
+  },
+});
+
+app.mount("#app");
+```
+
+```html
+<div id="app">
+  <p v-once>Inital Counter: {{ counter }}</p>
+  <button v-on:click="increment(10)">Increase</button>
+  <button v-on:click="decrement(5)">Decrease</button>
+  <p>Current Counter: {{ counter }}</p>
 </div>
 ```

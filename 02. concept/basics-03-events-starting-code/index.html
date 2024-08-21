@@ -17,9 +17,10 @@
   </header>
   <section id="events">
     <h2>Events in Action</h2>
+    <p v-once>Inital Counter: {{ counter }}</p>
     <button v-on:click="increment(10)">Increase</button>
     <button v-on:click="decrement(5)">Decrease</button>
-    <p>Result: {{ counter }}</p>
+    <p>Current Counter: {{ counter }}</p>
     <input type="text" v-on:input="setFirstName" />
     <p>{{ firstname }}</p>
     <input type="text" v-on:input="setFullName($event, firstname)">
