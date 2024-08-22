@@ -8,9 +8,9 @@ const app = Vue.createApp({
   },
   methods: {
     selectBox(v) {
-      if (v === "A") this.selectA = true;
-      if (v === "B") this.selectB = true;
-      if (v === "C") this.selectC = true;
+      if (v === "A") this.selectA = !this.selectA;
+      if (v === "B") this.selectB = !this.selectB;
+      if (v === "C") this.selectC = !this.selectC;
     },
   },
 });

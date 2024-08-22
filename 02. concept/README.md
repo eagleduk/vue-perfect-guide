@@ -574,3 +574,42 @@ app.mount("#app");
   ></div>
 </div>
 ```
+
+## 동적 class
+
+- `v-bind:class`을 사용하여 클래스를 추가/삭제가 가능하다.
+- 객체 형태로 추가/삭제할 클래스명을 키값으로 제어가 가능하다.
+
+```javascript
+const app = Vue.createApp({
+  data() {
+    return {
+      selected: false,
+    };
+  },
+  methods: {
+    selectBox() {
+      this.selected = !this.selected;
+    },
+  },
+});
+
+app.mount("#app");
+```
+
+```html
+<style>
+  .default {
+    width: 150px;
+    height: 150px;
+    background-color: blue;
+  }
+  .select {
+    background-color: red;
+  }
+</style>
+
+<div id="app">
+  <div class="default" :class="{select: selected}" @click="selectBox"></div>
+</div>
+```
