@@ -462,3 +462,35 @@ app.mount("#app");
   <input type="text" v-model="name" />
 </div>
 ```
+
+## Computed
+
+- 연산 프로퍼티
+- 의존된 데이터가 변경될 때 마다 수행하는 `Vue` 예약어
+- 함수로 정의하지만, HTML에서는 함수보다 프로퍼티 취급을 받는다. 따라서 네이밍도 프로퍼티 형식으로 해야 구분하기 쉽다.
+
+```javascript
+const app = Vue.createApp({
+  data() {
+    return {
+      name: "",
+    };
+  },
+  computed: {
+    fullname() {
+      if(this.name == "") return "";
+      return this.name + ", Welcome"
+    }
+  }
+  methods: {},
+});
+
+app.mount("#app");
+```
+
+```html
+<div id="app">
+  <input type="text" v-model="name" />
+  <p>{{ fullname }}</p>
+</div>
+```

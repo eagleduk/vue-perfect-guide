@@ -5,6 +5,12 @@ const app = Vue.createApp({
       name: "",
     };
   },
+  computed: {
+    fullname() {
+      if (this.name == "") return "";
+      return this.name + ", Welcome";
+    },
+  },
   methods: {
     setName(event) {
       this.name = event.target.value;
