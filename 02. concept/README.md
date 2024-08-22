@@ -426,3 +426,39 @@ app.mount("#app");
   <p>Current Counter: {{ counter }}</p>
 </div>
 ```
+
+## 양방향 바인딩
+
+- `input`과 같이 데이터와 이벤트를 모두 바인딩하는 경우 `v-model`로 `v-on:input`과 `v-bind:value`를 대체할 수 있다.
+
+  > [!NOTE]
+  >
+  > - text, textarea의 경우 _v-bind:value_, _v-on:input_
+  >
+  > - checkbox, radio의 경우 _v-bind:checked_, _v-on:change_
+  >
+  > - select의 경우 _v-bind:value_, _v-on:change_
+
+```javascript
+const app = Vue.createApp({
+  data() {
+    return {
+      name: "",
+    };
+  },
+  methods: {
+    setName(event) {
+      this.name = event.target.value;
+    },
+  },
+});
+
+app.mount("#app");
+```
+
+```html
+<div id="app">
+  <input type="text" v-bind:input="name" v-on:input="setName" />
+  <input type="text" v-model="name" />
+</div>
+```
