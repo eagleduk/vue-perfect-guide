@@ -613,3 +613,44 @@ app.mount("#app");
   <div class="default" :class="{select: selected}" @click="selectBox"></div>
 </div>
 ```
+
+## Computed 동적 class Styling
+
+```javascript
+const app = Vue.createApp({
+  data() {
+    return {
+      selected: false,
+    };
+  },
+  computed: {
+    boxSelected() {
+      return {select: this.selected}
+    }
+  }
+  methods: {
+    selectBox() {
+      this.selected = !this.selected;
+    },
+  },
+});
+
+app.mount("#app");
+```
+
+```html
+<style>
+  .default {
+    width: 150px;
+    height: 150px;
+    background-color: blue;
+  }
+  .select {
+    background-color: red;
+  }
+</style>
+
+<div id="app">
+  <div class="default" :class="boxSelected" @click="selectBox"></div>
+</div>
+```
