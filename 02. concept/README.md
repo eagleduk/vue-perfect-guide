@@ -494,3 +494,42 @@ app.mount("#app");
   <p>{{ fullname }}</p>
 </div>
 ```
+
+## Watch
+
+- 감시자 프로퍼티
+- 의존된 데이터의 이전값, 현재값을 비교하고 동작을 수행하기에 적합하다.
+- 의존할 데이터와 동일한 이름을 가진 함수로 정의한다.
+
+```javascript
+const app = Vue.createApp({
+  data() {
+    return {
+      counter: 0
+    };
+  },
+  watch: {
+    counter(value, oldValue) {
+      if(value > 20) this.counter = 0;
+    }
+  }
+  methods: {
+    decrement() {
+      this.counter--;
+    },
+    increment() {
+      this.counter++;
+    }
+  },
+});
+
+app.mount("#app");
+```
+
+```html
+<div id="app">
+  <button @click="decrement">Decrease</button>
+  <p>{{ counter }}</p>
+  <button @click="increment">Increase</button>
+</div>
+```
