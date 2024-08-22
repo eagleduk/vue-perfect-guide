@@ -47,6 +47,7 @@ app.mount("#app");
 
 - **{{ }}** 로 데이터를 사용할 때에는 HTML 태그에서만 사용 가능하다.
 - `DOM Element`의 속성에 데이터를 바인딩할 때에는 **v-bind** 기능을 사용하여 속성을 제어한다.
+- `v-bind:`를 축약하여 `:`로 사용 가능하다
 
 ```javascript
 const app = Vue.createApp({
@@ -180,6 +181,7 @@ app.mount("#app");
 
 - 데이터 바인딩과 비슷하게 `v-on:[이벤트 타입]` 형식으로 사용
 - 직접적으로 `Vue`App의 데이터에 접근가능하다.
+- `v-on:`를 축약하여 `@`로 사용 가능하다
 
 ```javascript
 const app = Vue.createApp({
