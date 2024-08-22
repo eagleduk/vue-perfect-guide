@@ -543,3 +543,34 @@ app.mount("#app");
 | 데이터 및 이벤트 바인딩에 사용                   | 데이터 바인딩에만 사용                    | HTML 템플릿에 직접사용되는 경우가 적다                                                 |
 | 컴포넌트의 리렌더링 주기에 맞춰 매번 재 실행     | 의존하는 데이터가 변경시에만 재 실행      | HTML 템플릿에 참조하지 않지만 연산 프로퍼티를 포함해 어느 프로퍼티든 감시할 수 있다    |
 | 페이지의 변동 사항이 있을 때 마다 재 수행시 사용 | 다른 데이터에 의존하는 데이터 변경시 사용 | 변경되는 데이터가 아닌 내부에서 업데이트하는 작업이 있을때 사용(HTTP, localStorage 등) |
+
+## 동적 styling
+
+- `v-bind:style`을 통하여 inline 스타일을 조건에 따라 수정이 가능하다.
+
+```javascript
+const app = Vue.createApp({
+  data() {
+    return {
+      selected: false,
+    };
+  },
+  methods: {
+    selectBox() {
+      this.selected = !this.selected;
+    },
+  },
+});
+
+app.mount("#app");
+```
+
+```html
+<div id="app">
+  <div
+    style="width: 150px; height: 150px; background-color: blue"
+    @click="selectBox"
+    :style="{'background-color': selected ? 'red' : 'white'}"
+  ></div>
+</div>
+```
