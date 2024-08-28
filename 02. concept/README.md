@@ -654,3 +654,7 @@ app.mount("#app");
   <div class="default" :class="boxSelected" @click="selectBox"></div>
 </div>
 ```
+
+## Summary
+
+- `Vue`는 화면을 먼저 구성하고 그에 따른 데이터 및 이벤트를 바인딩 하는 식으로 개발이 이루어진다.
