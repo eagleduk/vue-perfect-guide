@@ -62,7 +62,6 @@ app.mount("#app");
 
 - 주어진 객체에 대하여 **v-for** 가 정의된 DOM 요소를 반복한다.
 - 주어진 객체에 따라 반복되는 변수(객체)가 다르다.
-- 반복되는 요소에 대하여 고유한 구별값인 **v-bind:key** 디렉티브 값을 사용하여 반복되는 요소에 대하여 구분을 주어줄 수 있다.
 
 ```javascript
 const app = Vue.createApp({});
@@ -89,3 +88,7 @@ app.mount("#app");
   <p v-for="(char, index) in 'VueJS'" :key="char">[{{ index }}] {{ char }}</p>
 </div>
 ```
+
+#### :key
+
+- DOM 요소에 대하여 고유한 구별값인 **v-bind:key** 디렉티브 값을 사용하여 반복되는 요소에 대하여 구분을 주어줄 수 있다.
