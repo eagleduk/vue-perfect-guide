@@ -27,3 +27,31 @@ app.mount("#app");
   </p>
 </div>
 ```
+
+#### v-show
+
+- 조건에 따른 DOM 요소를 제어하는 `Vue` 디렉티브
+- v-if 와는 다르게 DOM 요소의 **display** 값을 변경하는 디렉티브
+- 요소가 자주 보임/숨김 처리가 되는 요소에 대하여 사용
+- v-if 로 처리하기에는 DOM 요소가 많을 때에는 성능저하 방지를 위해 대체하여 사용 가능
+
+```javascript
+const app = Vue.createApp({
+  data() {
+    return {
+      input: "",
+    };
+  },
+});
+
+app.mount("#app");
+```
+
+```html
+<div id="app">
+  <p>
+    <input type="text" v-model="input" />
+    <span v-show="input.trim().length === 0">Please Input your name</span>
+  </p>
+</div>
+```
