@@ -61,7 +61,8 @@ app.mount("#app");
 #### v-for
 
 - 주어진 객체에 대하여 **v-for** 가 정의된 DOM 요소를 반복한다.
-- 주어진 객체에 따라 반복되는 변수(객체)가 다르다
+- 주어진 객체에 따라 반복되는 변수(객체)가 다르다.
+- 반복되는 요소에 대하여 고유한 구별값인 **v-bind:key** 디렉티브 값을 사용하여 반복되는 요소에 대하여 구분을 주어줄 수 있다.
 
 ```javascript
 const app = Vue.createApp({});
@@ -72,17 +73,19 @@ app.mount("#app");
 ```html
 <div id="app">
   <h4>배열</h4>
-  <p v-for="(value, index) in [1,2,3]">[{{ index }}] {{ value }}</p>
+  <p v-for="(value, index) in [1,2,3]" v-bind:key="value">
+    [{{ index }}] {{ value }}
+  </p>
 
   <h4>범위</h4>
-  <p v-for="(num, index) in 10">[{{ index }}] {{ num }}</p>
+  <p v-for="(num, index) in 10" :key="num">[{{ index }}] {{ num }}</p>
 
   <h4>객체</h4>
-  <p v-for="(value, key, index) in { name: 'name', age: 14}">
+  <p v-for="(value, key, index) in { name: 'name', age: 14}" :key="value">
     [{{ index }}] {{ key }} : {{ value }}
   </p>
 
   <h4>문자열</h4>
-  <p v-for="(char, index) in 'VueJS'">[{{ index }}] {{ char }}</p>
+  <p v-for="(char, index) in 'VueJS'" :key="char">[{{ index }}] {{ char }}</p>
 </div>
 ```
