@@ -55,3 +55,34 @@ app.mount("#app");
   </p>
 </div>
 ```
+
+## List Rendering
+
+#### v-for
+
+- 주어진 객체에 대하여 **v-for** 가 정의된 DOM 요소를 반복한다.
+- 주어진 객체에 따라 반복되는 변수(객체)가 다르다
+
+```javascript
+const app = Vue.createApp({});
+
+app.mount("#app");
+```
+
+```html
+<div id="app">
+  <h4>배열</h4>
+  <p v-for="(value, index) in [1,2,3]">[{{ index }}] {{ value }}</p>
+
+  <h4>범위</h4>
+  <p v-for="(num, index) in 10">[{{ index }}] {{ num }}</p>
+
+  <h4>객체</h4>
+  <p v-for="(value, key, index) in { name: 'name', age: 14}">
+    [{{ index }}] {{ key }} : {{ value }}
+  </p>
+
+  <h4>문자열</h4>
+  <p v-for="(char, index) in 'VueJS'">[{{ index }}] {{ char }}</p>
+</div>
+```
