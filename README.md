@@ -7,3 +7,5 @@
 2. [Core Concepts](./02.%20concept/README.md)
 
 3. [Condition and List Rendering](./03.%20condition%20and%20list%20rendering/README.md)
+
+4. [Monster slayer](./04.%20monster%20slayer/README.md)
