@@ -51,3 +51,23 @@ const app = Vue.createApp({
 
 app.mount("#app");
 ```
+
+### LifeCycle
+
+- Vue App Mount
+
+  1. beforeCreate
+  2. created
+     - 랜더링 `Template` 컴파일
+  3. beforeMount
+  4. mounted
+
+- Vue Data Changed
+
+  1. beforeUpdate
+  2. updated
+
+- Vue App Unmount
+
+  1. beforeUnmount
+  2. unmounted
