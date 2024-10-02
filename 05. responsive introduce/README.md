@@ -23,3 +23,31 @@ const proxy = new Proxy(target, handler);
 console.log(proxy.message1); // hello
 console.log(proxy.message2); // world
 ```
+
+### Ref
+
+- VueJS 가 HTML 의 요소에 직접 접근할 수 있게 해준다.
+
+```html
+<div id="app">
+  <input type="text" ref="userName" />
+  <button @click="setText">{{ name }}</button>
+</div>
+```
+
+```javascript
+const app = Vue.createApp({
+  data() {
+    return {
+      name: "",
+    };
+  },
+  methods: {
+    setText() {
+      this.name = this.$refs.userName.value;
+    },
+  },
+});
+
+app.mount("#app");
+```
