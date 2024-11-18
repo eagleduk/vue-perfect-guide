@@ -13,3 +13,5 @@
 5. [Behind VueJS](<05. behind/README.md>)
 
 6. [Components](<06. components/README.md>)
+
+7. [Vue CLI](<07. vue cli/README.md>)
