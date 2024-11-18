@@ -1,6 +1,8 @@
 ## Vue Start
 
-> npm create vue@latest
+1.  > npm create vue@latest
+
+2.  > npm init vue
 
 ## .vue
 
