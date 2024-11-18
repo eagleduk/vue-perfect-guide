@@ -4,7 +4,9 @@
       {{ friend.name }}
     </h2>
 
-    <button @click="toggleDetail">Show Detail</button>
+    <button @click="toggleDetail">
+      {{ showToggle ? "Hide" : "Show" }} Detail
+    </button>
 
     <ul v-if="this.showToggle">
       <li>
