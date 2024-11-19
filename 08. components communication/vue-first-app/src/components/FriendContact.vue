@@ -1,7 +1,7 @@
 <template>
   <li>
     <h2>
-      {{ friend.name }}
+      {{ name }}
     </h2>
 
     <button @click="toggleDetail">
@@ -11,11 +11,11 @@
     <ul v-if="this.showToggle">
       <li>
         <strong>Phone: </strong>
-        {{ friend.phone }}
+        {{ phoneNumber }}
       </li>
       <li>
         <strong>Email: </strong>
-        {{ friend.email }}
+        {{ emailAddress }}
       </li>
     </ul>
   </li>
@@ -23,6 +23,7 @@
 
 <script>
 export default {
+  props: ["name", "phoneNumber", "emailAddress"],
   data() {
     return {
       showToggle: false,
