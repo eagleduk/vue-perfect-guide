@@ -23,7 +23,25 @@
 
 <script>
 export default {
-  props: ["name", "phoneNumber", "emailAddress"],
+  // props: ["name", "phoneNumber", "emailAddress"],
+  props: {
+    name: {
+      type: String,
+      required: true,
+    },
+    phoneNumber: {
+      type: String,
+      required: true,
+    },
+    emailAddress: {
+      type: String,
+      required: false,
+      default: "None",
+      validator: function (value) {
+        return true;
+      },
+    },
+  },
   data() {
     return {
       showToggle: false,
