@@ -2,7 +2,12 @@
   <li>
     <h2>
       {{ name }}
+      {{ favorite ? "❤" : "" }}
     </h2>
+
+    <button @click="toggleFavorite">
+      {{ favorite ? "UnLike" : "Like" }}
+    </button>
 
     <button @click="toggleDetail">
       {{ showToggle ? "Hide" : "Show" }} Detail
@@ -41,21 +46,24 @@ export default {
         return true;
       },
     },
+    isFavorite: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
   },
   data() {
     return {
       showToggle: false,
-      friend: {
-        id: "id001",
-        name: "Ronaldo",
-        phone: "000 111 2222",
-        email: "ronaldo@localhost.com",
-      },
+      favorite: this.isFavorite,
     };
   },
   methods: {
     toggleDetail() {
       this.showToggle = !this.showToggle;
+    },
+    toggleFavorite() {
+      this.favorite = !this.favorite;
     },
   },
 };
