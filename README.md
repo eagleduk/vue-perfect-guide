@@ -15,3 +15,5 @@
 6. [Components](<06. components/README.md>)
 
 7. [Vue CLI](<07. vue cli/README.md>)
+
+8. [Components Communication](<08. components communication/README.md>)
