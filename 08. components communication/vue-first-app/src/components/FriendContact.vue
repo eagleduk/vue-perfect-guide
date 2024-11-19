@@ -2,11 +2,11 @@
   <li>
     <h2>
       {{ name }}
-      {{ favorite ? "❤" : "" }}
+      {{ isFavorite ? "❤" : "" }}
     </h2>
 
     <button @click="toggleFavorite">
-      {{ favorite ? "UnLike" : "Like" }}
+      {{ isFavorite ? "UnLike" : "Like" }}
     </button>
 
     <button @click="toggleDetail">
@@ -30,6 +30,10 @@
 export default {
   // props: ["name", "phoneNumber", "emailAddress"],
   props: {
+    id: {
+      type: String,
+      required: true,
+    },
     name: {
       type: String,
       required: true,
@@ -55,7 +59,6 @@ export default {
   data() {
     return {
       showToggle: false,
-      favorite: this.isFavorite,
     };
   },
   methods: {
@@ -63,7 +66,7 @@ export default {
       this.showToggle = !this.showToggle;
     },
     toggleFavorite() {
-      this.favorite = !this.favorite;
+      this.$emit("toggle-favorite", this.id);
     },
   },
 };
