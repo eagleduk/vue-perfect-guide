@@ -3,6 +3,7 @@
     <header>
       <h1>My Friends</h1>
     </header>
+    <new-friend @add-friend="addFriend" />
     <ul>
       <friend-contact
         v-for="friend in friends"
@@ -19,6 +20,8 @@
 </template>
 
 <script>
+import NewFriend from "./components/NewFriend.vue";
+
 export default {
   data() {
     return {
@@ -41,6 +44,12 @@ export default {
     };
   },
   methods: {
+    addFriend(friend) {
+      this.friends.push({
+        id: `id${(this.friends.length + 1).toString().padStart(3, "0")}`,
+        ...friend,
+      });
+    },
     toggleFavorite(id) {
       const targetFriend = this.friends.find(function (friend) {
         return friend.id === id;
@@ -114,5 +123,19 @@ header {
   background-color: #ec3169;
   border-color: #ec3169;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
+}
+
+#app input {
+  font: inherit;
+  padding: 0.15rem;
+}
+#app label {
+  font-weight: bold;
+  margin-right: 1rem;
+  width: 7rem;
+  display: inline-block;
+}
+#app form div {
+  margin: 1rem 0;
 }
 </style>
