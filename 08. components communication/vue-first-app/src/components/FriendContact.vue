@@ -13,6 +13,8 @@
       {{ showToggle ? "Hide" : "Show" }} Detail
     </button>
 
+    <button @click="deleteFriend">Delete</button>
+
     <ul v-if="this.showToggle">
       <li>
         <strong>Phone: </strong>
@@ -66,6 +68,14 @@ export default {
         return false;
       }
     },
+    "delete-friend": function (id) {
+      if (id) {
+        return true;
+      } else {
+        console.error("ID is missing!");
+        return false;
+      }
+    },
   },
   data() {
     return {
@@ -78,6 +88,9 @@ export default {
     },
     toggleFavorite() {
       this.$emit("toggle-favorite", this.id);
+    },
+    deleteFriend() {
+      this.$emit("delete-friend", this.id);
     },
   },
 };

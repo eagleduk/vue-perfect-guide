@@ -14,6 +14,7 @@
         :email-address="friend.email"
         :is-favorite="friend.favorite"
         @toggle-favorite="toggleFavorite"
+        @delete-friend="deleteFriend"
       ></friend-contact>
     </ul>
   </section>
@@ -46,7 +47,7 @@ export default {
   methods: {
     addFriend(friend) {
       this.friends.push({
-        id: `id${(this.friends.length + 1).toString().padStart(3, "0")}`,
+        id: Date.now().toString(),
         ...friend,
       });
     },
@@ -55,6 +56,9 @@ export default {
         return friend.id === id;
       });
       targetFriend.favorite = !targetFriend.favorite;
+    },
+    deleteFriend(id) {
+      this.friends = this.friends.filter((friend) => friend.id !== id);
     },
   },
 };
@@ -91,7 +95,8 @@ header {
   list-style: none;
 }
 
-#app li {
+#app li,
+#app form {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   margin: 1rem auto;
   border-radius: 10px;
