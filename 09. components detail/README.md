@@ -16,3 +16,8 @@
 
 - Vue 컴포넌트에서 적용된 스타일은 전역적인 스타일로 취급된다.
 - `<style scoped>` 옵션을 추가하면 해당 스타일이 있는 Vue Component Template 에서만 적용이 된다.
+
+## Slot
+
+- 특정 태그를 재 사용하기 위한 VueJS의 기능
+- 데이터가 아닌 HTML 태그 및 VueJS 기능을 옮겨 사용하기 위한 기능
