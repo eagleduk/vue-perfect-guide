@@ -21,3 +21,5 @@
 
 - 특정 태그를 재 사용하기 위한 VueJS의 기능
 - 데이터가 아닌 HTML 태그 및 VueJS 기능을 옮겨 사용하기 위한 기능
+- slot에 이름을 지정하여 여러개의 slot을 원하는 위치에 랜더링할 수 있다.
+- slot Component 마다 `default` slot은 하나만 가질 수 있다.
