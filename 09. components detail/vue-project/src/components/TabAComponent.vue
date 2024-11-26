@@ -1,3 +1,6 @@
 <template>
-  <h2>Tab A</h2>
+  <div>
+    <h2>Tab A</h2>
+    <input type="text" />
+  </div>
 </template>

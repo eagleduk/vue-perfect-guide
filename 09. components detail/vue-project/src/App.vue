@@ -26,7 +26,9 @@
       <button @click="selectTabAction('TabBComponent')">Tab B</button>
     </p>
 
-    <component :is="selectedTab"></component>
+    <KeepAlive>
+      <component :is="selectedTab"></component>
+    </KeepAlive>
   </div>
 </template>
 
