@@ -7,7 +7,7 @@
       :title="resource.title"
       :description="resource.description"
       :link="resource.link"
-    ></learning-resource>
+    />
   </ul>
 </template>
 
@@ -17,7 +17,7 @@ export default {
   components: {
     LearningResource,
   },
-  props: ["resources"],
+  inject: ["resources"],
 };
 </script>
 
