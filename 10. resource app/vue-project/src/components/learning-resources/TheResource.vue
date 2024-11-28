@@ -22,20 +22,7 @@ export default {
   data() {
     return {
       selectedTab: "stored-resource",
-      resources: [
-        {
-          id: "001",
-          title: "Res1",
-          description: "Desc1",
-          link: "https://vuejs.org",
-        },
-        {
-          id: "002",
-          title: "Res2",
-          description: "Desc2",
-          link: "https://google.com",
-        },
-      ],
+      resources: [],
     };
   },
   computed: {
@@ -49,11 +36,26 @@ export default {
   provide() {
     return {
       resources: this.resources,
+      removeResource: this.removeResource,
+      addResource: this.addResource,
     };
   },
   methods: {
     selectTab(tab) {
       this.selectedTab = tab;
+    },
+    addResource(title, desciption, link) {
+      this.resources.push({
+        id: Date.now().toString(),
+        title: title,
+        desciption: desciption,
+        link: link,
+      });
+      this.selectedTab = "stored-resource";
+    },
+    removeResource(id) {
+      const index = this.resources.findIndex((r) => r.id === id);
+      this.resources.splice(index, 1);
     },
   },
 };
