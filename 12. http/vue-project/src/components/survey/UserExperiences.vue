@@ -7,7 +7,12 @@
           >Load Submitted Experiences</base-button
         >
       </div>
-      <ul>
+      <p v-if="loading">Loading....</p>
+      <p v-if="!loading && error">
+        {{ error }}
+      </p>
+      <p v-if="!loading && !error && results.length === 0">no Data.</p>
+      <ul v-if="!loading && results.length > 0">
         <survey-result
           v-for="result in results"
           :key="result.id"
@@ -30,17 +35,22 @@ export default {
   data() {
     return {
       results: [],
+      loading: false,
+      error: null,
     };
   },
   methods: {
     async loadSurvey() {
+      this.results = [];
+      this.error = null;
+      this.loading = true;
+
       const response = await fetch(
         "https://udemy-perfect-react-default-rtdb.asia-southeast1.firebasedatabase.app/survey.json"
       );
 
       if (response.ok) {
         const data = await response.json();
-        this.results = [];
 
         for (const key in data) {
           this.results.push({
@@ -49,24 +59,16 @@ export default {
             name: data[key].userName,
           });
         }
+      } else {
+        console.log(response);
+        this.error = response.statusText;
       }
+
+      this.loading = false;
     },
   },
   async mounted() {
-    const response = await fetch(
-      "https://udemy-perfect-react-default-rtdb.asia-southeast1.firebasedatabase.app/survey.json"
-    );
-
-    if (response.ok) {
-      const data = await response.json();
-      for (const key in data) {
-        this.results.push({
-          key,
-          rating: data[key].rating,
-          name: data[key].userName,
-        });
-      }
-    }
+    await this.loadSurvey();
   },
 };
 </script>
