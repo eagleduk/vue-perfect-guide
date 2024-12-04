@@ -67,10 +67,24 @@ export default {
       }
       this.invalidInput = false;
 
-      this.$emit("survey-submit", {
-        userName: this.enteredName,
-        rating: this.chosenRating,
-      });
+      // this.$emit("survey-submit", {
+      //   userName: this.enteredName,
+      //   rating: this.chosenRating,
+      // });
+
+      fetch(
+        "https://udemy-perfect-react-default-rtdb.asia-southeast1.firebasedatabase.app/survey.json",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userName: this.enteredName,
+            rating: this.chosenRating,
+          }),
+        }
+      );
 
       this.enteredName = "";
       this.chosenRating = null;
