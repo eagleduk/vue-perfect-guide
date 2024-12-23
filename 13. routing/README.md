@@ -17,5 +17,14 @@ createRouter({
     ...
   ],
 }
+```
 
+## Link router
+
+- `router-link` 태그를 이용하여 링크를 랜더링 해준다.
+- 내부 로직에 의하여 `url`변경 후 해당 페이지를 랜더링 해준다.
+- `router`를 생성할 때, _linkActiveClass_, _linkExactActiveClass_ 옵션을 통하여 링크 활성화 시의 클래스를 임의로 정의할 수 있다.
+
+```html
+<router-link to></router-link>
 ```
