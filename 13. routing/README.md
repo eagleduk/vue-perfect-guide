@@ -28,3 +28,11 @@ createRouter({
 ```html
 <router-link to></router-link>
 ```
+
+- [프로그래밍 방식 네비게이션](https://router.vuejs.org/guide/essentials/navigation.html#Programmatic-Navigation)
+
+```javascript
+this.$router.push();
+this.$router.back();
+this.$router.forward();
+```
