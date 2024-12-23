@@ -36,3 +36,7 @@ this.$router.push();
 this.$router.back();
 this.$router.forward();
 ```
+
+## dynamic navigation
+
+- router를 설정할 떄 동적 URL 주소를 입력해 준다.
