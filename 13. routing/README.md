@@ -47,3 +47,7 @@ this.$router.forward();
 
    - watcher 를 이용하여 URL Route 가 변경되는 순간을 포착하여 컴포넌트를 새로 그린다.
    - 단, URL Route가 아닌 방식으로 컴포넌트 재 사용 불가
+
+2. Prop
+
+   - router를 생성할 때, `props` 옵션을 설정하여 동적 URL 값을 컴포넌트의 props로 받을 수 있다.
