@@ -40,3 +40,10 @@ this.$router.forward();
 ## dynamic navigation
 
 - router를 설정할 떄 동적 URL 주소를 입력해 준다.
+
+## Pass URL Parameter
+
+1. watch
+
+   - watcher 를 이용하여 URL Route 가 변경되는 순간을 포착하여 컴포넌트를 새로 그린다.
+   - 단, URL Route가 아닌 방식으로 컴포넌트 재 사용 불가
