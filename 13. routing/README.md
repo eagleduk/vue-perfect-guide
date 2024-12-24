@@ -65,3 +65,8 @@ this.$router.forward();
 
 - router 생성 시, `children` 옵션으로 중첩된 라우트를 설정할 수 있다.
 - 단, 부모 컴포넌트에서 `<router-view>` 태그가 있어야 자식 컴포넌트를 랜더링할 수 있다.
+
+## Named Routes
+
+- 각 route 의 URL 마다 이름을 부여하여 URL, params를 사용하여 Parameter를 사용할 수 있다.
+- URL path 를 변경해도 이름이 변경되지 않으면 동작하는데 있어 무리가 없다.
