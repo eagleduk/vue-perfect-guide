@@ -70,3 +70,4 @@ this.$router.forward();
 
 - 각 route 의 URL 마다 이름을 부여하여 URL, params를 사용하여 Parameter를 사용할 수 있다.
 - URL path 를 변경해도 이름이 변경되지 않으면 동작하는데 있어 무리가 없다.
+- query 키를 사용하여 query 값을 전달할 수 있다.
