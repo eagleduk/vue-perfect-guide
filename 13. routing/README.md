@@ -51,3 +51,8 @@ this.$router.forward();
 2. Prop
 
    - router를 생성할 때, `props` 옵션을 설정하여 동적 URL 값을 컴포넌트의 props로 받을 수 있다.
+
+## Redirect
+
+1. `redirect`: 강제로 다른 URL로 이동시킨다.
+2. `alias`: URL 주소에 대하여, 다른 주소를 별칭으로 사용한다.
