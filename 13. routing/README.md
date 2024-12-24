@@ -56,3 +56,7 @@ this.$router.forward();
 
 1. `redirect`: 강제로 다른 URL로 이동시킨다.
 2. `alias`: URL 주소에 대하여, 다른 주소를 별칭으로 사용한다.
+
+## Catch All Route
+
+- vue 에서 제공하는 정규식을 사용하여 정의된 URL이 아닌 경우에 대하여 처리한다.

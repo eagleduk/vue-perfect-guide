@@ -14,6 +14,7 @@ const router = createRouter({
     // { path: "/teams", component: TeamsList, alias: "/" },
     { path: "/teams/:teamId", component: TeamMembers, props: true },
     { path: "/users", component: UsersList },
+    { path: "/:notFound(.*)", redirect: "/teams" },
   ],
   linkActiveClass: "active",
 });
