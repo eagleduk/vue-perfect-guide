@@ -60,3 +60,8 @@ this.$router.forward();
 ## Catch All Route
 
 - vue 에서 제공하는 정규식을 사용하여 정의된 URL이 아닌 경우에 대하여 처리한다.
+
+## Nested Routes
+
+- router 생성 시, `children` 옵션으로 중첩된 라우트를 설정할 수 있다.
+- 단, 부모 컴포넌트에서 `<router-view>` 태그가 있어야 자식 컴포넌트를 랜더링할 수 있다.
