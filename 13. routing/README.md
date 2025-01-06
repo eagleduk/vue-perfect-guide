@@ -90,3 +90,7 @@ this.$router.forward();
 2. after Navigation Guard
 
    - 이동이 승인된 이후 호출되는 함수로, 페이지 제어는 할 수 없다.
+
+3. leave Navigation Guard
+
+   - 페이지를 벗어나기 전, 페이지를 제어할 수 있다.

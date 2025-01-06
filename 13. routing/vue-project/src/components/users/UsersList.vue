@@ -27,6 +27,11 @@ export default {
     console.log("Component Route Guard", to, from);
     next();
   },
+  beforeRouteLeave(to, from, next) {
+    console.log("Component Route Leave Guard", to, from);
+    const pageConfirm = confirm("벗어나시겠습니까");
+    next(pageConfirm);
+  },
 };
 </script>
 
