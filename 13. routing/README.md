@@ -94,3 +94,7 @@ this.$router.forward();
 3. leave Navigation Guard
 
    - 페이지를 벗어나기 전, 페이지를 제어할 수 있다.
+
+4. Meta Data
+
+   - route 주소에 `meta` 객체를 사용하여 데이터 전달을 할 수 있다.

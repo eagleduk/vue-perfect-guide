@@ -15,6 +15,9 @@ const router = createRouter({
     {
       name: "teams",
       path: "/teams",
+      meta: {
+        teamsMetaData: true,
+      },
       components: {
         default: TeamsList,
         footer: TeamsFooter,
@@ -57,7 +60,11 @@ const router = createRouter({
 
 router.beforeEach(function (to, from, next) {
   console.log("Global Route Guard.", to, from);
-  next();
+
+  if (to.meta.teamsMetaData) {
+    console.log("teamsMetaData", to.meta.teamsMetaData);
+    next();
+  } else next();
 });
 
 router.afterEach(function (to, from) {
