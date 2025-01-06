@@ -75,3 +75,8 @@ this.$router.forward();
 ## Named Router-View
 
 - `router-view` 태그에 _name_ 속성을 추가함 으로써 한 route 에 여러개의 동적 view를 설정할 수 있다.
+
+## Scroll Control
+
+- `scrollBehavior` 옵션을 통하여 route 동작 전, 후 의 스크롤 위치에 대하여 컨트롤이 가능하다.
+- 또한 _to_,_from_ 파라메터를 통하여 다른 동작을 취할 수도 있어 보인다.
