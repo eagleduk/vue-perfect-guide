@@ -49,6 +49,10 @@ export default {
   created() {
     this.setMembers(this.teamId);
   },
+  beforeRouteUpdate(to, from, next) {
+    console.log("Update Route Guard", to, from);
+    next();
+  },
 };
 </script>
 

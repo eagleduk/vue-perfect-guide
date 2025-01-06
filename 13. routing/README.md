@@ -80,3 +80,9 @@ this.$router.forward();
 
 - `scrollBehavior` 옵션을 통하여 route 동작 전, 후 의 스크롤 위치에 대하여 컨트롤이 가능하다.
 - 또한 _to_,_from_ 파라메터를 통하여 다른 동작을 취할 수도 있어 보인다.
+
+## Navigation Guard
+
+1. before Navigation Guard
+
+   - route 주소에 따라 페이지가 이동할 때, 라우트 전역, 라우트 부모, 컴포넌트 단위로 라우트에 따른 컴포넌트가 호출될 시를 체크할 수 있다.

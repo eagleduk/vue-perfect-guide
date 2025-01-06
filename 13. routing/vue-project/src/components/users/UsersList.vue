@@ -23,6 +23,10 @@ export default {
       this.$router.push("/teams");
     },
   },
+  beforeRouteEnter(to, from, next) {
+    console.log("Component Route Guard", to, from);
+    next();
+  },
 };
 </script>
 

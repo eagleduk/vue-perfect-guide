@@ -36,6 +36,10 @@ const router = createRouter({
         default: UsersList,
         footer: UsersFooter,
       },
+      beforeEnter(to, from, next) {
+        console.log("Path Route Guard.", to, from);
+        next();
+      },
     },
     { path: "/:notFound(.*)", redirect: "/teams" },
   ],
@@ -49,6 +53,11 @@ const router = createRouter({
       top: 0,
     };
   },
+});
+
+router.beforeEach(function (to, from, next) {
+  console.log("Global Route Guard.", to, from);
+  next();
 });
 
 const app = createApp(App);
