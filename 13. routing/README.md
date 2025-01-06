@@ -71,3 +71,7 @@ this.$router.forward();
 - 각 route 의 URL 마다 이름을 부여하여 URL, params를 사용하여 Parameter를 사용할 수 있다.
 - URL path 를 변경해도 이름이 변경되지 않으면 동작하는데 있어 무리가 없다.
 - query 키를 사용하여 query 값을 전달할 수 있다.
+
+## Named Router-View
+
+- `router-view` 태그에 _name_ 속성을 추가함 으로써 한 route 에 여러개의 동적 view를 설정할 수 있다.
