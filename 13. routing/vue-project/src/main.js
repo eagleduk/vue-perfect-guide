@@ -60,6 +60,10 @@ router.beforeEach(function (to, from, next) {
   next();
 });
 
+router.afterEach(function (to, from) {
+  console.log("after Route Guard", to, from);
+});
+
 const app = createApp(App);
 
 app.use(router);

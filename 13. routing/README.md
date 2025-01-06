@@ -86,3 +86,7 @@ this.$router.forward();
 1. before Navigation Guard
 
    - route 주소에 따라 페이지가 이동할 때, 라우트 전역, 라우트 부모, 컴포넌트 단위로 라우트에 따른 컴포넌트가 호출될 시를 체크할 수 있다.
+
+2. after Navigation Guard
+
+   - 이동이 승인된 이후 호출되는 함수로, 페이지 제어는 할 수 없다.
