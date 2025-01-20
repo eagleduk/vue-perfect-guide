@@ -5,7 +5,7 @@
   </div>
   <div class="container">
     <button @click="toggleParagraph">Show Paragraph</button>
-    <transition>
+    <transition name="para">
       <p v-if="paragraphIsVisible">Display this TEXT.</p>
     </transition>
   </div>
@@ -90,27 +90,30 @@ button:active {
   transform: translateX(-150px);
 }
 
-.v-enter-from {
+.para-enter-from {
   transform: translateY(-50px) scale(0.4);
 }
 
-.v-enter-active {
+.para-enter-active {
   transition: transform 0.3s ease-out;
+  /*
+  animation: keyframes duration timing;
+  */
 }
 
-.v-enter-to {
+.para-enter-to {
   transform: translateY(0px) scale(1);
 }
 
-.v-leave-from {
+.para-leave-from {
   transform: translateY(0px) scale(1);
 }
 
-.v-leave-active {
+.para-leave-active {
   transition: transform 0.3s ease-out;
 }
 
-.v-leave-to {
+.para-leave-to {
   transform: translateY(50px) scale(0.4);
 }
 </style>
