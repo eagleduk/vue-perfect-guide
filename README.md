@@ -27,3 +27,5 @@
 12. [Http](<12. http/REAEME.md>)
 
 13. [routing](<13. routing/README.md>)
+
+14. [animation](<14. animation/README.md>)
