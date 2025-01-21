@@ -1,40 +1,9 @@
 <template>
-  <div class="container">
-    <user-list></user-list>
-  </div>
-  <div class="container">
-    <div class="block" :class="{ animate: animatedBlock }"></div>
-    <button @click="animateBlock">Animate</button>
-  </div>
-  <div class="container">
-    <button @click="toggleParagraph">Show Paragraph</button>
-    <transition
-      name="para"
-      @before-enter="beforeEnter"
-      @enter="enter"
-      @after-enter="afterEnter"
-      @before-leave="beforeLeave"
-      @leave="leave"
-      @after-leave="afterLeave"
-      @enter-cancelled="enterCancelled"
-      @leave-cancelled="leaveCancelled"
-    >
-      <p v-if="paragraphIsVisible">Display this TEXT.</p>
+  <router-view v-slot="{ Component }">
+    <transition name="page" mode="out-in">
+      <component :is="Component" />
     </transition>
-  </div>
-  <div class="container">
-    <transition name="fade-button" mode="out-in">
-      <button @click="hideButton" v-if="buttonVisible">Hide Button</button>
-      <button @click="showButton" v-else>Show Button</button>
-    </transition>
-  </div>
-  <base-modal @close="hideDialog" :open="dialogIsVisible">
-    <p>This is a test dialog!</p>
-    <button @click="hideDialog">Close it!</button>
-  </base-modal>
-  <div class="container">
-    <button @click="showDialog">Show Dialog</button>
-  </div>
+  </router-view>
 </template>
 
 <script>
@@ -186,5 +155,33 @@ button:active {
 .fade-button-enter-to,
 .fade-button-enter-from {
   opacity: 1;
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+.page-enter-active {
+  transition: all 0.3s ease-in;
+}
+
+.page-enter-to {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.page-leave-from {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.page-leave-active {
+  transition: all 0.3s ease-in;
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateX(50px);
 }
 </style>
