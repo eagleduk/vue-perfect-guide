@@ -9,6 +9,12 @@
       <p v-if="paragraphIsVisible">Display this TEXT.</p>
     </transition>
   </div>
+  <div class="container">
+    <transition name="fade-button" mode="out-in">
+      <button @click="hideButton" v-if="buttonVisible">Hide Button</button>
+      <button @click="showButton" v-else>Show Button</button>
+    </transition>
+  </div>
   <base-modal @close="hideDialog" :open="dialogIsVisible">
     <p>This is a test dialog!</p>
     <button @click="hideDialog">Close it!</button>
@@ -25,9 +31,16 @@ export default {
       animatedBlock: false,
       dialogIsVisible: false,
       paragraphIsVisible: false,
+      buttonVisible: false,
     };
   },
   methods: {
+    showButton() {
+      this.buttonVisible = true;
+    },
+    hideButton() {
+      this.buttonVisible = false;
+    },
     animateBlock() {
       this.animatedBlock = true;
     },
@@ -115,5 +128,23 @@ button:active {
 
 .para-leave-to {
   transform: translateY(50px) scale(0.4);
+}
+
+.fade-button-enter-from,
+.fade-button-leave-to {
+  opacity: 0;
+}
+
+.fade-button-enter-active {
+  transition: opacity 0.3s ease-out;
+}
+
+.fade-button-leave-active {
+  transition: opacity 0.3s ease-in;
+}
+
+.fade-button-enter-to,
+.fade-button-enter-from {
+  opacity: 1;
 }
 </style>
