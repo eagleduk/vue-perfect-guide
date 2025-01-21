@@ -5,7 +5,17 @@
   </div>
   <div class="container">
     <button @click="toggleParagraph">Show Paragraph</button>
-    <transition name="para">
+    <transition
+      name="para"
+      @before-enter="beforeEnter"
+      @enter="enter"
+      @after-enter="afterEnter"
+      @before-leave="beforeLeave"
+      @leave="leave"
+      @after-leave="afterLeave"
+      @enter-cancelled="enterCancelled"
+      @leave-cancelled="leaveCancelled"
+    >
       <p v-if="paragraphIsVisible">Display this TEXT.</p>
     </transition>
   </div>
@@ -35,6 +45,30 @@ export default {
     };
   },
   methods: {
+    enterCancelled(el) {
+      console.log("enterCancelled", el);
+    },
+    leaveCancelled(el) {
+      console.log("leaveCancelled", el);
+    },
+    beforeEnter(el) {
+      console.log("beforeEnter", el);
+    },
+    enter(el) {
+      console.log("enter", el);
+    },
+    afterEnter(el) {
+      console.log("afterEnter", el);
+    },
+    beforeLeave(el) {
+      console.log("beforeLeave", el);
+    },
+    leave(el) {
+      console.log("leave", el);
+    },
+    afterLeave(el) {
+      console.log("afterLeave", el);
+    },
     showButton() {
       this.buttonVisible = true;
     },
