@@ -1,7 +1,13 @@
 <template>
-  <h2>{{ $store.getters.tripleCounter }}</h2>
+  <h2>{{ tripleCounter }}</h2>
 </template>
 
 <script>
-export default {};
+import { mapGetters } from "vuex";
+
+export default {
+  computed: {
+    ...mapGetters(["tripleCounter"]),
+  },
+};
 </script>
