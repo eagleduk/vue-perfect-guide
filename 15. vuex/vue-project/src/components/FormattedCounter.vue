@@ -1,5 +1,5 @@
 <template>
-  <h1>{{ $store.getters.normalizeCounter }}</h1>
+  <h2>{{ $store.getters.tripleCounter }}</h2>
 </template>
 
 <script>

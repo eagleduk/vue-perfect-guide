@@ -1,6 +1,7 @@
 <template>
   <base-container title="Vuex">
     <the-counter></the-counter>
+    <formatted-counter></formatted-counter>
     <button @click="addOne">+1</button>
     <add-counter></add-counter>
   </base-container>
@@ -10,12 +11,14 @@
 import BaseContainer from "./components/BaseContainer.vue";
 import TheCounter from "./components/TheCounter.vue";
 import AddCounter from "./components/AddCounter.vue";
+import FormattedCounter from "./components/FormattedCounter.vue";
 
 export default {
   components: {
     BaseContainer,
     TheCounter,
     AddCounter,
+    FormattedCounter,
   },
   methods: {
     addOne() {

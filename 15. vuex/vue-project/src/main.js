@@ -17,6 +17,14 @@ const store = createStore({
       state.counter = state.counter + payload.value;
     },
   },
+  getters: {
+    normalizeCounter(state) {
+      return state.counter;
+    },
+    tripleCounter(_, getters) {
+      return getters.normalizeCounter * 3;
+    },
+  },
 });
 
 const app = createApp(App);
