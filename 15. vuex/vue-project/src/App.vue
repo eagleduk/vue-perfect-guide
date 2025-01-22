@@ -4,6 +4,7 @@
     <formatted-counter></formatted-counter>
     <button @click="addOne">+1</button>
     <add-counter></add-counter>
+    <async-counter></async-counter>
   </base-container>
 </template>
 
@@ -12,6 +13,7 @@ import BaseContainer from "./components/BaseContainer.vue";
 import TheCounter from "./components/TheCounter.vue";
 import AddCounter from "./components/AddCounter.vue";
 import FormattedCounter from "./components/FormattedCounter.vue";
+import AsyncCounter from "./components/AsyncCounter.vue";
 
 export default {
   components: {
@@ -19,6 +21,7 @@ export default {
     TheCounter,
     AddCounter,
     FormattedCounter,
+    AsyncCounter,
   },
   methods: {
     addOne() {

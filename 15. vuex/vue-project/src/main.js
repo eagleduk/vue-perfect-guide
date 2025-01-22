@@ -17,6 +17,13 @@ const store = createStore({
       state.counter = state.counter + payload.value;
     },
   },
+  actions: {
+    add(context, payload) {
+      setTimeout(function () {
+        context.commit("add", payload);
+      }, 2000);
+    },
+  },
   getters: {
     normalizeCounter(state) {
       return state.counter;
