@@ -13,6 +13,9 @@ const store = createStore({
     addOne(state) {
       state.counter = state.counter + 1;
     },
+    add(state, payload) {
+      state.counter = state.counter + payload.value;
+    },
   },
 });
 
