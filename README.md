@@ -29,3 +29,5 @@
 13. [routing](<13. routing/README.md>)
 
 14. [animation](<14. animation/README.md>)
+
+15. [vuex](<15. vuex/README.md>)
