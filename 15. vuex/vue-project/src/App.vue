@@ -1,5 +1,9 @@
 <template>
-  <base-container title="Vuex">
+  <base-container title="Auth">
+    <user-auth></user-auth>
+  </base-container>
+
+  <base-container title="Vuex" v-if="isLoggedIn">
     <the-counter></the-counter>
     <formatted-counter></formatted-counter>
     <button @click="addOne">+1</button>
@@ -9,11 +13,13 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import BaseContainer from "./components/BaseContainer.vue";
 import TheCounter from "./components/TheCounter.vue";
 import AddCounter from "./components/AddCounter.vue";
 import FormattedCounter from "./components/FormattedCounter.vue";
 import AsyncCounter from "./components/AsyncCounter.vue";
+import UserAuth from "./components/UserAuth.vue";
 
 export default {
   components: {
@@ -22,6 +28,10 @@ export default {
     AddCounter,
     FormattedCounter,
     AsyncCounter,
+    UserAuth,
+  },
+  computed: {
+    ...mapGetters(["isLoggedIn"]),
   },
   methods: {
     addOne() {

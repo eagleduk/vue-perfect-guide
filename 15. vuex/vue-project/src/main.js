@@ -7,6 +7,7 @@ const store = createStore({
   state() {
     return {
       counter: 0,
+      isLoggedIn: false,
     };
   },
   mutations: {
@@ -16,12 +17,24 @@ const store = createStore({
     add(state, payload) {
       state.counter = state.counter + payload.value;
     },
+    login(state) {
+      state.isLoggedIn = true;
+    },
+    logOut(state) {
+      state.isLoggedIn = false;
+    },
   },
   actions: {
     add(context, payload) {
       setTimeout(function () {
         context.commit("add", payload);
       }, 2000);
+    },
+    login(context) {
+      context.commit("login");
+    },
+    logout(context) {
+      context.commit("logOut");
     },
   },
   getters: {
@@ -30,6 +43,9 @@ const store = createStore({
     },
     tripleCounter(_, getters) {
       return getters.normalizeCounter * 3;
+    },
+    isLoggedIn(state) {
+      return state.isLoggedIn;
     },
   },
 });
