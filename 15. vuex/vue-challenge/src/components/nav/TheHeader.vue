@@ -26,7 +26,22 @@
 
 <script>
 export default {
-  inject: ["isLoggedIn", "login", "logout", "cart"],
+  computed: {
+    isLoggedIn() {
+      return this.$store.getters["auth/isLoggedIn"];
+    },
+    cart() {
+      return this.$store.getters["cart/cartList"];
+    },
+  },
+  methods: {
+    login() {
+      this.$store.dispatch("auth/login");
+    },
+    logout() {
+      this.$store.dispatch("auth/logout");
+    },
+  },
 };
 </script>
 

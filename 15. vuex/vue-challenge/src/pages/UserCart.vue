@@ -22,11 +22,13 @@
 import CartItem from "../components/cart/CartItem.vue";
 
 export default {
-  inject: ["cart"],
   components: {
     CartItem,
   },
   computed: {
+    cart() {
+      return this.$store.getters["cart/cartList"];
+    },
     cartTotal() {
       return this.cart.total.toFixed(2);
     },
