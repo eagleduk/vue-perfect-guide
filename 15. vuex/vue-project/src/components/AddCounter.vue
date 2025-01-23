@@ -8,7 +8,7 @@ export default {
     addOne() {
       //   this.$store.commit("addOne", {value: 10});
       this.$store.commit({
-        type: "add",
+        type: "counter/add",
         value: 10,
       });
     },

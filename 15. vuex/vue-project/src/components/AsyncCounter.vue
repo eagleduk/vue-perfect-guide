@@ -9,11 +9,11 @@ import { mapActions } from "vuex";
 export default {
   methods: {
     add() {
-      this.$store.dispatch("add", {
+      this.$store.dispatch("counter/add", {
         value: 4,
       });
     },
-    ...mapActions({
+    ...mapActions("counter", {
       ad: "add",
     }),
   },

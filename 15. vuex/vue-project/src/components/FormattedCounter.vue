@@ -7,7 +7,7 @@ import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters(["tripleCounter"]),
+    ...mapGetters("counter", ["tripleCounter"]),
   },
 };
 </script>
