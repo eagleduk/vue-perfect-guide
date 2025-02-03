@@ -6,12 +6,10 @@
       </h1>
     </nav>
     <nav>
-      <ul>
-        <li>
-          <router-link to="/coaches"> All Coaches </router-link>
-          <router-link to="/requests"> Requests </router-link>
-        </li>
-      </ul>
+      <li>
+        <router-link to="/coaches"> All Coaches </router-link>
+        <router-link to="/requests"> Requests </router-link>
+      </li>
     </nav>
   </header>
 </template>
