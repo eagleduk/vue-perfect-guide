@@ -1,12 +1,14 @@
 <template>
   <section>
-    <coaches-filter @search-filter="serchFilter"> </coaches-filter>
+    <coaches-filter @search-filter="searchFilter"> </coaches-filter>
   </section>
   <section>
     <base-card>
       <div class="controls">
         <base-button mode="outline">Refresh</base-button>
-        <base-button to="/register"> Register as Coach </base-button>
+        <base-button v-if="!alreadyCoach" to="/register">
+          Register as Coach
+        </base-button>
       </div>
       <ul>
         <coaches-item
@@ -43,6 +45,9 @@ export default {
     };
   },
   computed: {
+    alreadyCoach() {
+      return this.$store.getters["coaches/alreadyCoach"];
+    },
     searchCoaches() {
       const coaches = this.$store.getters["coaches/coaches"];
       return coaches.filter((coach) => {
@@ -60,7 +65,7 @@ export default {
     },
   },
   methods: {
-    serchFilter(filter) {
+    searchFilter(filter) {
       this.filter = filter;
     },
   },

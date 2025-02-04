@@ -1,7 +1,18 @@
 <template>
-  <h1>CoachesRegister</h1>
+  <coaches-form @add-coach="addCoach"></coaches-form>
 </template>
 
 <script>
-export default {};
+import CoachesForm from "../../components/coaches/CoachesForm.vue";
+export default {
+  components: {
+    CoachesForm,
+  },
+  methods: {
+    addCoach(data) {
+      this.$store.dispatch("coaches/add", data);
+      this.$router.replace("/");
+    },
+  },
+};
 </script>
