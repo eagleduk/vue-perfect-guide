@@ -1,16 +1,22 @@
 <template>
+  <base-dialog :show="error !== null" @close="handleDialog" title="ERROR">{{
+    error
+  }}</base-dialog>
   <section>
     <coaches-filter @search-filter="searchFilter"> </coaches-filter>
   </section>
   <section>
     <base-card>
       <div class="controls">
-        <base-button mode="outline">Refresh</base-button>
-        <base-button v-if="!alreadyCoach" to="/register">
+        <base-button mode="outline" @click-event="loadCoaches"
+          >Refresh</base-button
+        >
+        <base-button v-if="!isLoading && !alreadyCoach" to="/register">
           Register as Coach
         </base-button>
       </div>
-      <ul>
+      <base-spinner v-if="isLoading"></base-spinner>
+      <ul v-else>
         <coaches-item
           v-for="coach in searchCoaches"
           :key="coach.id"
@@ -37,12 +43,17 @@ export default {
   },
   data() {
     return {
+      isLoading: false,
+      error: null,
       filter: {
         frontend: true,
         backend: true,
         career: true,
       },
     };
+  },
+  created() {
+    this.loadCoaches();
   },
   computed: {
     alreadyCoach() {
@@ -67,6 +78,18 @@ export default {
   methods: {
     searchFilter(filter) {
       this.filter = filter;
+    },
+    async loadCoaches() {
+      this.isLoading = true;
+      try {
+        await this.$store.getters["coaches/loadCoaches"];
+      } catch (error) {
+        this.error = error.message;
+      }
+      this.isLoading = false;
+    },
+    handleDialog() {
+      this.error = null;
     },
   },
 };

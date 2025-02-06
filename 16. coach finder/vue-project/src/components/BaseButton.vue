@@ -1,5 +1,5 @@
 <template>
-  <button :class="mode" v-if="!isLink">
+  <button :class="mode" v-if="!isLink" @click="clickEvent">
     <slot></slot>
   </button>
 
@@ -10,6 +10,7 @@
 
 <script>
 export default {
+  emits: ["click-event"],
   props: {
     mode: {
       type: String,
@@ -25,6 +26,11 @@ export default {
   computed: {
     isLink() {
       return this.to !== null;
+    },
+  },
+  methods: {
+    clickEvent() {
+      this.$emit("click-event");
     },
   },
 };
