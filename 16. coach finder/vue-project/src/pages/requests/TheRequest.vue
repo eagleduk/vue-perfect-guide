@@ -1,4 +1,7 @@
 <template>
+  <base-dialog :show="error !== null" @close="handleDialog" title="ERROR">{{
+    error
+  }}</base-dialog>
   <section>
     <base-card>
       <header>
@@ -25,9 +28,32 @@ export default {
   components: {
     RequestItem,
   },
+  data() {
+    return {
+      isLoading: false,
+      error: null,
+    };
+  },
+  created() {
+    this.loadRequests();
+  },
   computed: {
     requests() {
       return this.$store.getters["requests/requests"];
+    },
+  },
+  methods: {
+    async loadRequests() {
+      this.isLoading = true;
+      try {
+        await this.$store.getters["requests/loadRequests"];
+      } catch (error) {
+        this.error = error.message;
+      }
+      this.isLoading = false;
+    },
+    handleDialog() {
+      this.error = null;
     },
   },
 };

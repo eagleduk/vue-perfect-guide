@@ -39,7 +39,6 @@ export default {
       return this.coach.firstName + " " + this.coach.lastName;
     },
     contactURL() {
-      console.log(this.$route);
       return this.$route.path + "/contact";
     },
   },

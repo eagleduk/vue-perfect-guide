@@ -1,26 +1,24 @@
 <template>
   <section>
-    <base-card>
-      <form @submit.prevent="submit">
-        <div class="form-control">
-          <label id="email"> Your E-Mail </label>
-          <input type="email" id="email" v-model.trim="email" />
-        </div>
+    <form @submit.prevent="submit">
+      <div class="form-control">
+        <label id="email"> Your E-Mail </label>
+        <input type="email" id="email" v-model.trim="email" />
+      </div>
 
-        <div class="form-control">
-          <label id="message"> Message </label>
-          <textarea id="message" rows="5" v-model.trim="message"></textarea>
-        </div>
+      <div class="form-control">
+        <label id="message"> Message </label>
+        <textarea id="message" rows="5" v-model.trim="message"></textarea>
+      </div>
 
-        <p class="errors" v-if="inValid">
-          Please enter a valid email and message.
-        </p>
+      <p class="errors" v-if="inValid">
+        Please enter a valid email and message.
+      </p>
 
-        <div class="actions">
-          <base-button> Send Message </base-button>
-        </div>
-      </form>
-    </base-card>
+      <div class="actions">
+        <base-button> Send Message </base-button>
+      </div>
+    </form>
   </section>
 </template>
 
