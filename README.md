@@ -32,4 +32,6 @@
 
 15. [vuex](<15. vuex/README.md>)
 
-16. [Coach Finder](<16. coach finder/README.md>)
+16. [Coach Finder](<16. coach finder>)
+
+17. [Auth](<17. auth>)
