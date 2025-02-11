@@ -7,7 +7,15 @@
       <ul>
         <li>
           <router-link to="/coaches"> All Coaches </router-link>
+        </li>
+        <li v-if="isLoggin">
           <router-link to="/requests"> Requests </router-link>
+        </li>
+        <li v-if="isLoggin">
+          <base-button @click="logout">Logout</base-button>
+        </li>
+        <li v-else>
+          <router-link to="/auth">Login</router-link>
         </li>
       </ul>
     </nav>
@@ -15,7 +23,19 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    isLoggin() {
+      return this.$store.getters.isLoggin;
+    },
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch("logout");
+      this.$router.replace("/coaches");
+    },
+  },
+};
 </script>
 
 <style scoped>

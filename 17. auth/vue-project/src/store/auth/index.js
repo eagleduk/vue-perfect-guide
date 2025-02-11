@@ -7,7 +7,6 @@ export default {
     return {
       userId: null,
       idToken: null,
-      expiresIn: null,
     };
   },
   getters,

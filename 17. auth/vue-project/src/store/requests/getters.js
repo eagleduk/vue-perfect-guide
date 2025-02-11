@@ -4,9 +4,10 @@ export default {
   },
   async loadRequests(state, _, _2, rootGetters) {
     const userId = rootGetters.getUserId;
+    const token = rootGetters.getToken;
 
     const response = await fetch(
-      `https://udemy-perfect-react-default-rtdb.asia-southeast1.firebasedatabase.app/findCoach/requests/${userId}.json`
+      `https://udemy-perfect-react-default-rtdb.asia-southeast1.firebasedatabase.app/findCoach/requests/${userId}.json?auth=${token}`
     );
     if (!response.ok) {
       const error = new Error("Error to fetch Requests" || error.message);

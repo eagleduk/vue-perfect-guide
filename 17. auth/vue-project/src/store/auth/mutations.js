@@ -1,7 +1,10 @@
 export default {
-  signup(state, payload) {
+  setUser(state, payload) {
     state.userId = payload.userId;
     state.idToken = payload.idToken;
-    state.expiresIn = payload.expiresIn;
+  },
+  logout(state) {
+    state.userId = null;
+    state.idToken = null;
   },
 };

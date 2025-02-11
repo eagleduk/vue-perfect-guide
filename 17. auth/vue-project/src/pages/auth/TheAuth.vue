@@ -29,6 +29,8 @@ export default {
       password: "",
       isInvalid: false,
       mode: "login",
+      isLoading: false,
+      error: null,
     };
   },
   computed: {
@@ -49,10 +51,28 @@ export default {
         this.isInvalid = true;
         return;
       }
-      this.$store.dispatch("signup", {
-        email: this.email,
-        password: this.password,
-      });
+
+      this.isLoading = true;
+
+      try {
+        if (this.mode === "login") {
+          this.$store.dispatch("login", {
+            email: this.email,
+            password: this.password,
+          });
+        } else {
+          this.$store.dispatch("signup", {
+            email: this.email,
+            password: this.password,
+          });
+        }
+      } catch (err) {
+        this.error = err.message;
+      }
+
+      this.isLoading = false;
+
+      this.$router.replace("/coaches");
     },
     switchMode() {
       if (this.mode === "login") this.mode = "signup";

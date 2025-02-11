@@ -11,7 +11,10 @@
         <base-button mode="outline" @click-event="loadCoaches"
           >Refresh</base-button
         >
-        <base-button v-if="!isLoading && !alreadyCoach" to="/register">
+        <base-button
+          v-if="isLoggin && !isLoading && !alreadyCoach"
+          to="/register"
+        >
           Register as Coach
         </base-button>
       </div>
@@ -56,6 +59,9 @@ export default {
     this.loadCoaches();
   },
   computed: {
+    isLoggin() {
+      return this.$store.getters.isLoggin;
+    },
     alreadyCoach() {
       return this.$store.getters["coaches/alreadyCoach"];
     },
