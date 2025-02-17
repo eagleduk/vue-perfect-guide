@@ -47,7 +47,7 @@ export default {
       return firstName.value + " " + lastName.value;
     });
 
-    watch([userName, uName], function (oldValues, newValues) {
+    watch([userName, uName], function (newValues, oldValues) {
       console.log("Old Values: ", oldValues);
       console.log("New Values: ", newValues);
     });
