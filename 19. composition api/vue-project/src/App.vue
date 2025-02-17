@@ -11,19 +11,25 @@
       <label for="">K-league : </label>
       <span>{{ team.K }}</span>
     </p>
+    <button @click="setData">New Data</button>
   </section>
 
   <section class="container">
-    <button @click="setData">New Data</button>
+    <input type="text" @input="setFirstName" />
+    <input type="text" @input="setLastName" />
+    <h2>{{ uName }}</h2>
   </section>
 </template>
 
 <script>
-import { reactive, ref } from "vue";
+import { computed, reactive, ref } from "vue";
 
 export default {
   setup() {
     const uName = ref("Ronaldo");
+    setTimeout(function () {
+      uName.value = "Messi";
+    }, 2000);
 
     const team = reactive({
       epl: "Man.UTD",
@@ -31,15 +37,29 @@ export default {
     });
 
     function setData() {
-      uName.value = "Messi";
       team.epl = "ManCity";
       team.K = "SaungNam.FC";
     }
+
+    const firstName = ref("");
+    const lastName = ref("");
+    function setFirstName(event) {
+      firstName.value = event.target.value;
+    }
+    function setLastName(event) {
+      lastName.value = event.target.value;
+    }
+    const userName = computed(function () {
+      return firstName.value + " " + lastName.value;
+    });
 
     return {
       userName: uName,
       team,
       setData,
+      uName: userName,
+      setFirstName,
+      setLastName,
     };
   },
   // data() {
