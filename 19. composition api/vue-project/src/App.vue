@@ -15,8 +15,8 @@
   </section>
 
   <section class="container">
-    <input type="text" @input="setFirstName" />
-    <input type="text" @input="setLastName" />
+    <input type="text" v-model="firstName" />
+    <input type="text" v-model="lastName" />
     <h2>{{ uName }}</h2>
   </section>
 </template>
@@ -43,12 +43,6 @@ export default {
 
     const firstName = ref("");
     const lastName = ref("");
-    function setFirstName(event) {
-      firstName.value = event.target.value;
-    }
-    function setLastName(event) {
-      lastName.value = event.target.value;
-    }
     const userName = computed(function () {
       return firstName.value + " " + lastName.value;
     });
@@ -58,8 +52,8 @@ export default {
       team,
       setData,
       uName: userName,
-      setFirstName,
-      setLastName,
+      firstName,
+      lastName,
     };
   },
   // data() {
