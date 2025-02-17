@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { computed, reactive, ref } from "vue";
+import { computed, reactive, ref, watch } from "vue";
 
 export default {
   setup() {
@@ -45,6 +45,11 @@ export default {
     const lastName = ref("");
     const userName = computed(function () {
       return firstName.value + " " + lastName.value;
+    });
+
+    watch([userName, uName], function (oldValues, newValues) {
+      console.log("Old Values: ", oldValues);
+      console.log("New Values: ", newValues);
     });
 
     return {
