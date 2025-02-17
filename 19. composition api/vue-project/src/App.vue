@@ -12,6 +12,10 @@
       <span>{{ team.K }}</span>
     </p>
   </section>
+
+  <section class="container">
+    <button @click="setData">New Data</button>
+  </section>
 </template>
 
 <script>
@@ -26,18 +30,16 @@ export default {
       K: "FC.Seoul",
     });
 
-    setTimeout(() => {
+    function setData() {
       uName.value = "Messi";
-    }, 3000);
-
-    setTimeout(() => {
       team.epl = "ManCity";
       team.K = "SaungNam.FC";
-    }, 4000);
+    }
 
     return {
       userName: uName,
       team,
+      setData,
     };
   },
   // data() {
