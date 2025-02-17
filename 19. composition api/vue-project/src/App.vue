@@ -2,20 +2,42 @@
   <section class="container">
     <h2>{{ userName }}</h2>
   </section>
+  <section class="container">
+    <p>
+      <label for="">EPL : </label>
+      <span>{{ team.epl }}</span>
+    </p>
+    <p>
+      <label for="">K-league : </label>
+      <span>{{ team.K }}</span>
+    </p>
+  </section>
 </template>
 
 <script>
-import { ref } from "vue";
+import { reactive, ref } from "vue";
 
 export default {
   setup() {
     const uName = ref("Ronaldo");
+
+    const team = reactive({
+      epl: "Man.UTD",
+      K: "FC.Seoul",
+    });
+
     setTimeout(() => {
       uName.value = "Messi";
     }, 3000);
 
+    setTimeout(() => {
+      team.epl = "ManCity";
+      team.K = "SaungNam.FC";
+    }, 4000);
+
     return {
       userName: uName,
+      team,
     };
   },
   // data() {
