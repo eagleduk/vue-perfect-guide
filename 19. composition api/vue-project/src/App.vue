@@ -15,9 +15,10 @@
   </section>
 
   <section class="container">
-    <input type="text" v-model="firstName" />
-    <input type="text" v-model="lastName" />
     <h2>{{ uName }}</h2>
+    <input type="text" v-model="firstName" />
+    <input type="text" ref="lastNameInput" />
+    <button @click="setLastName">Set Last Name</button>
   </section>
 </template>
 
@@ -43,9 +44,14 @@ export default {
 
     const firstName = ref("");
     const lastName = ref("");
+    const lastNameInput = ref(null);
     const userName = computed(function () {
       return firstName.value + " " + lastName.value;
     });
+
+    function setLastName() {
+      lastName.value = lastNameInput.value.value;
+    }
 
     watch([userName, uName], function (newValues, oldValues) {
       console.log("Old Values: ", oldValues);
@@ -58,7 +64,8 @@ export default {
       setData,
       uName: userName,
       firstName,
-      lastName,
+      lastNameInput,
+      setLastName,
     };
   },
   // data() {
