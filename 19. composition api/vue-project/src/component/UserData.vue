@@ -6,10 +6,12 @@ import { computed } from "vue";
 
 export default {
   props: ["firstName", "lastName"],
-  setup(props) {
+  setup(props, context) {
     const uName = computed(function () {
       return props.firstName + " " + props.lastName;
     });
+
+    context.emit("save"); // this.$emit("save");
 
     return {
       uName,
