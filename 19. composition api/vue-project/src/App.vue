@@ -15,7 +15,7 @@
   </section>
 
   <section class="container">
-    <h2>{{ uName }}</h2>
+    <user-data :first-name="firstName" :last-name="lastName"></user-data>
     <input type="text" v-model="firstName" />
     <input type="text" ref="lastNameInput" />
     <button @click="setLastName">Set Last Name</button>
@@ -24,8 +24,12 @@
 
 <script>
 import { computed, reactive, ref, watch } from "vue";
+import UserData from "./component/UserData.vue";
 
 export default {
+  components: {
+    UserData,
+  },
   setup() {
     const uName = ref("Ronaldo");
     setTimeout(function () {
@@ -64,6 +68,7 @@ export default {
       setData,
       uName: userName,
       firstName,
+      lastName,
       lastNameInput,
       setLastName,
     };
