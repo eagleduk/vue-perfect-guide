@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { computed, reactive, ref, watch } from "vue";
+import { computed, provide, reactive, ref, watch } from "vue";
 import UserData from "./component/UserData.vue";
 
 export default {
@@ -61,6 +61,9 @@ export default {
       console.log("Old Values: ", oldValues);
       console.log("New Values: ", newValues);
     });
+
+    const number = ref(33);
+    provide("number", number);
 
     return {
       userName: uName,

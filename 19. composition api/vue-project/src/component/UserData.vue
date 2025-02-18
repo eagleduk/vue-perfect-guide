@@ -1,8 +1,9 @@
 <template>
   <h2>{{ uName }}</h2>
+  <h2>{{ number }}</h2>
 </template>
 <script>
-import { computed } from "vue";
+import { computed, inject } from "vue";
 
 export default {
   props: ["firstName", "lastName"],
@@ -13,8 +14,11 @@ export default {
 
     context.emit("save"); // this.$emit("save");
 
+    const number = inject("number");
+
     return {
       uName,
+      number,
     };
   },
 };
