@@ -37,3 +37,7 @@
 17. [Auth](<17. auth>)
 
 18. [Deployment](<18. deployment/README.md>)
+
+19. [Composition API](19.%20composition%20api/README.md)
+
+20. [Mixin](<20. mixin/README.md>)
