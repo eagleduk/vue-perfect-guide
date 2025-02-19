@@ -58,42 +58,6 @@ export default {
       updateSearch,
     };
   },
-  // data() {
-  //   return {
-  //     enteredSearchTerm: '',
-  //     activeSearchTerm: '',
-  //   };
-  // },
-  // computed: {
-  //   hasProjects() {
-  //     return this.user.projects && this.availableProjects.length > 0;
-  //   },
-  //   availableProjects() {
-  //     if (this.activeSearchTerm) {
-  //       return this.user.projects.filter((prj) =>
-  //         prj.title.includes(this.activeSearchTerm)
-  //       );
-  //     }
-  //     return this.user.projects;
-  //   },
-  // },
-  // methods: {
-  //   updateSearch(val) {
-  //     this.enteredSearchTerm = val;
-  //   },
-  // },
-  // watch: {
-  //   enteredSearchTerm(val) {
-  //     setTimeout(() => {
-  //       if (val === this.enteredSearchTerm) {
-  //         this.activeSearchTerm = val;
-  //       }
-  //     }, 300);
-  //   },
-  //   user() {
-  //     this.enteredSearchTerm = '';
-  //   },
-  // },
 };
 </script>
 

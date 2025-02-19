@@ -1,13 +1,13 @@
 import { computed, ref, watch } from "vue";
 
-export default function useSearch(items, filterName) {
+export default function useSearch(items, fieldName) {
   const enteredSearchTerm = ref("");
   const activeSearchTerm = ref("");
 
   const availableItems = computed(function () {
     if (activeSearchTerm.value) {
       return items.value.filter((item) =>
-        item[filterName].includes(activeSearchTerm.value)
+        item[fieldName].includes(activeSearchTerm.value)
       );
     }
     return items.value;
